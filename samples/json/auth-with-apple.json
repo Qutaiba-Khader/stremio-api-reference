@@ -1,0 +1,27 @@
+{
+  "request": {
+    "token": "eyJhbGciOiJSUzI1NiJ9.apple_identity_token_jwt...",
+    "sub": "000123.abcdef1234567890abcdef1234567890.1234",
+    "email": "user@privaterelay.appleid.com",
+    "name": "Jane Doe"
+  },
+  "response": {
+    "result": {
+      "authKey": "YOUR_AUTH_KEY",
+      "user": {
+        "_id": "7b2d5e8f3a1c4d6e9f0a1b2c",
+        "email": "user@privaterelay.appleid.com",
+        "fbId": null,
+        "avatar": null,
+        "lastModified": "2026-04-07T10:00:00.000Z",
+        "dateRegistered": "2026-04-07T10:00:00.000Z",
+        "trakt": null,
+        "gdpr_consent": {
+          "tos": true,
+          "privacy": true,
+          "marketing": false
+        }
+      }
+    }
+  }
+}
