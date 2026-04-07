@@ -7,12 +7,40 @@
         "transportName": "http",
         "manifest": {
           "id": "com.linvo.cinemeta",
-          "version": "3.0.12",
+          "version": "3.0.14",
+          "description": "The official addon for movie and series catalogs",
           "name": "Cinemeta",
-          "description": "The official addon for movie and series info",
+          "resources": ["catalog", "meta", "addon_catalog"],
           "types": ["movie", "series"],
-          "resources": ["meta", "catalog"],
-          "catalogs": []
+          "idPrefixes": ["tt"],
+          "catalogs": [
+            {
+              "type": "movie",
+              "id": "top",
+              "name": "Popular"
+            }
+          ],
+          "behaviorHints": {
+            "newEpisodeNotifications": true
+          }
+        },
+        "flags": {
+          "official": true,
+          "protected": true
+        }
+      },
+      {
+        "transportUrl": "https://opensubtitles-v3.strem.io/manifest.json",
+        "transportName": "http",
+        "manifest": {
+          "id": "org.stremio.opensubtitlesv3",
+          "version": "1.0.0",
+          "name": "OpenSubtitles v3",
+          "description": "Subtitles from OpenSubtitles",
+          "types": ["movie", "series"],
+          "resources": ["subtitles"],
+          "catalogs": [],
+          "idPrefixes": ["tt"]
         },
         "flags": {
           "official": true,
@@ -24,12 +52,17 @@
         "transportName": "http",
         "manifest": {
           "id": "org.example.myaddon",
-          "version": "1.0.0",
+          "version": "1.2.3",
           "name": "My Custom Addon",
-          "description": "A third-party addon",
-          "types": ["movie"],
+          "description": "A third-party streaming addon",
+          "types": ["movie", "series"],
           "resources": ["stream"],
-          "catalogs": []
+          "catalogs": [],
+          "idPrefixes": ["tt"],
+          "behaviorHints": {
+            "adult": false,
+            "p2p": true
+          }
         },
         "flags": {}
       }

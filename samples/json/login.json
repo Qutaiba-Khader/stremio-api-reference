@@ -9,7 +9,16 @@
       "user": {
         "_id": "5f8b3c2e1a2b3c4d5e6f7a8b",
         "email": "user@example.com",
-        "lastModified": "2026-04-07T10:00:00.000Z"
+        "fbId": null,
+        "avatar": null,
+        "lastModified": "2026-04-07T10:00:00.000Z",
+        "dateRegistered": "2024-01-15T08:30:00.000Z",
+        "trakt": null,
+        "gdpr_consent": {
+          "tos": true,
+          "privacy": true,
+          "marketing": false
+        }
       }
     }
   }

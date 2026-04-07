@@ -11,18 +11,37 @@
           "transportName": "http",
           "manifest": {
             "id": "com.linvo.cinemeta",
-            "version": "3.0.12",
+            "version": "3.0.14",
+            "description": "The official addon for movie and series catalogs",
             "name": "Cinemeta",
-            "description": "The official addon for movie and series info",
+            "resources": ["catalog", "meta", "addon_catalog"],
             "types": ["movie", "series"],
-            "resources": ["meta", "catalog"],
+            "idPrefixes": ["tt"],
             "catalogs": [
               {
                 "type": "movie",
                 "id": "top",
-                "name": "Popular"
+                "name": "Popular",
+                "extra": [
+                  { "name": "genre" },
+                  { "name": "search" },
+                  { "name": "skip" }
+                ]
+              },
+              {
+                "type": "series",
+                "id": "top",
+                "name": "Popular",
+                "extra": [
+                  { "name": "genre" },
+                  { "name": "search" },
+                  { "name": "skip" }
+                ]
               }
-            ]
+            ],
+            "behaviorHints": {
+              "newEpisodeNotifications": true
+            }
           },
           "flags": {
             "official": true,
@@ -39,7 +58,31 @@
             "description": "Subtitles from OpenSubtitles",
             "types": ["movie", "series"],
             "resources": ["subtitles"],
-            "catalogs": []
+            "catalogs": [],
+            "idPrefixes": ["tt"]
+          },
+          "flags": {
+            "official": true,
+            "protected": true
+          }
+        },
+        {
+          "transportUrl": "https://v3-channels.strem.io/manifest.json",
+          "transportName": "http",
+          "manifest": {
+            "id": "org.stremio.channels",
+            "version": "1.2.0",
+            "name": "YouTube & News",
+            "description": "YouTube and news channels",
+            "types": ["channel", "tv"],
+            "resources": ["catalog", "meta", "stream"],
+            "catalogs": [
+              {
+                "type": "tv",
+                "id": "tv-channels",
+                "name": "TV Channels"
+              }
+            ]
           },
           "flags": {
             "official": true,
@@ -51,12 +94,18 @@
           "transportName": "http",
           "manifest": {
             "id": "org.example.myaddon",
-            "version": "1.0.0",
+            "version": "1.2.3",
             "name": "My Custom Addon",
-            "description": "A third-party addon example",
-            "types": ["movie"],
+            "description": "A third-party streaming addon",
+            "types": ["movie", "series"],
             "resources": ["stream"],
-            "catalogs": []
+            "catalogs": [],
+            "idPrefixes": ["tt"],
+            "logo": "https://example-addon.com/logo.png",
+            "behaviorHints": {
+              "adult": false,
+              "p2p": true
+            }
           },
           "flags": {}
         }
