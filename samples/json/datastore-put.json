@@ -1,0 +1,54 @@
+{
+  "request": {
+    "authKey": "YOUR_AUTH_KEY",
+    "collection": "libraryItem",
+    "changes": [
+      {
+        "_id": "tt1375666",
+        "name": "Inception",
+        "type": "movie",
+        "poster": "https://images.metahub.space/poster/small/tt1375666/img",
+        "removed": false,
+        "temp": false,
+        "_ctime": "2025-06-15T14:30:00.000Z",
+        "_mtime": "2026-04-07T12:00:00.000Z",
+        "state": {
+          "timeWatched": 5400000,
+          "timesWatched": 1,
+          "flaggedWatched": 1,
+          "overallTimeWatched": 5400000,
+          "timeOffset": 0,
+          "lastWatched": "2026-04-07T12:00:00.000Z",
+          "video_id": "tt1375666",
+          "watched": "2026-04-07T12:00:00.000Z",
+          "noNotif": false,
+          "season": 0,
+          "episode": 0,
+          "duration": 8880000
+        }
+      },
+      {
+        "_id": "tt0903747",
+        "removed": true,
+        "_mtime": "2026-04-07T12:00:00.000Z",
+        "state": {
+          "timeWatched": 0,
+          "timesWatched": 0,
+          "flaggedWatched": 0,
+          "overallTimeWatched": 0,
+          "timeOffset": 0,
+          "lastWatched": "",
+          "video_id": "",
+          "watched": "",
+          "noNotif": false,
+          "season": 0,
+          "episode": 0,
+          "duration": 0
+        }
+      }
+    ]
+  },
+  "response": {
+    "result": {}
+  }
+}
