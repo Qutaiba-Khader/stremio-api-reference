@@ -9,7 +9,7 @@ This folder contains a static single-page web app for testing the Stremio API in
 3. In the left sidebar, click **Pages**
 4. Under **Source**, select:
    - **Branch:** `main`
-   - **Folder:** `/docs-site`
+   - **Folder:** `/docs`
 5. Click **Save**
 6. Wait 1-2 minutes for deployment
 7. Your site will be live at: `https://qutaiba-khader.github.io/stremio-api-reference/`

@@ -38,7 +38,6 @@ stremio-api-reference/
 ├── samples/
 │   ├── curl/               # Copy-paste curl commands (.sh)
 │   └── json/               # Request/response JSON examples
-├── docs-site/              # GitHub Pages interactive testing UI
 ├── references/             # Additional reference material
 └── README.md
 ```
