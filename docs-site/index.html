@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stremio API Explorer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Stremio API Explorer</h1>
+    <div id="header-controls">
+      <span id="active-account-label"></span>
+      <button id="btn-switch-account" class="btn btn-sm" style="display:none" onclick="showAccountSwitcher()">Switch</button>
+      <button id="btn-logout" class="btn btn-sm btn-danger" style="display:none" onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Login Screen -->
+    <section id="screen-login">
+      <div class="card login-card">
+        <h2>Login to Stremio</h2>
+        <div class="warning-box">
+          Your authKey will be stored in localStorage. Only use this on devices you trust.
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" onclick="switchLoginTab('credentials')">Email &amp; Password</button>
+          <button class="tab" onclick="switchLoginTab('authkey')">Paste AuthKey</button>
+        </div>
+
+        <div id="login-credentials">
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" placeholder="user@example.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="Password" autocomplete="current-password">
+          </div>
+          <button class="btn btn-primary btn-full" onclick="loginWithCredentials()">Login</button>
+        </div>
+
+        <div id="login-authkey" style="display:none">
+          <div class="form-group">
+            <label for="login-key">AuthKey</label>
+            <input type="text" id="login-key" placeholder="Paste your authKey here">
+          </div>
+          <div class="form-group">
+            <label for="login-label">Account Label (optional)</label>
+            <input type="text" id="login-label" placeholder="e.g. My Account">
+          </div>
+          <button class="btn btn-primary btn-full" onclick="loginWithKey()">Connect</button>
+        </div>
+
+        <div id="login-error" class="error-box" style="display:none"></div>
+
+        <div id="saved-accounts-section" style="display:none">
+          <h3>Saved Accounts</h3>
+          <div id="saved-accounts-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Account Switcher Modal -->
+    <div id="modal-switcher" class="modal" style="display:none">
+      <div class="modal-content card">
+        <h2>Switch Account</h2>
+        <div id="switcher-list"></div>
+        <div class="form-group" style="margin-top:1rem">
+          <button class="btn btn-full" onclick="hideAccountSwitcher()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Addons Screen -->
+    <section id="screen-addons" style="display:none">
+      <div class="toolbar">
+        <button class="btn" onclick="refreshAddons()">Refresh</button>
+        <button class="btn btn-primary" onclick="saveAddons()">Save to Stremio</button>
+        <button class="btn" onclick="backupAddons()">Backup</button>
+        <button class="btn" onclick="document.getElementById('restore-file').click()">Restore</button>
+        <input type="file" id="restore-file" accept=".json" style="display:none" onchange="restoreAddons(event)">
+      </div>
+
+      <div class="add-addon-bar">
+        <input type="text" id="new-addon-url" placeholder="Addon manifest URL (e.g. https://example.com/manifest.json)">
+        <button class="btn btn-primary" onclick="addAddon()">Add</button>
+      </div>
+
+      <div id="addon-status" class="status-box" style="display:none"></div>
+      <div id="addon-list"></div>
+      <div id="addon-empty" class="empty-state" style="display:none">
+        No addons found. Add one above or restore from a backup.
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
