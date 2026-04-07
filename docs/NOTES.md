@@ -29,6 +29,31 @@ Assumptions, conflicts, and gaps found while documenting the Stremio API from re
 - **What we guessed:** The full request/response. Documented from the addon SDK's `publishToCentral.js`, which sends `{ transportUrl, transportName }` and checks `resp.error` / `resp.result`. The exact `result` content is not inspected.
 - **Confidence:** High for request shape, low for response details.
 
+### `saveUser`
+
+- **What we guessed:** The response body. The official client sends the entire user object but does not inspect the response. We documented `{ "result": {} }` by convention.
+- **Confidence:** High for request shape (sends the full user object with `authKey`), low for response body.
+
+### `loginWithToken`
+
+- **What we guessed:** The request fields. The official client accepts a generic `params` object — the exact fields the server expects (beyond `token`) are unknown. We documented `{ "token": "..." }` as the minimum.
+- **Confidence:** Medium — the method exists and returns `authKey` + `user` (confirmed by code), but the exact accepted params are undocumented. No test coverage exists.
+
+### `datastoreGet`
+
+- **What we guessed:** The response format. AIOManager handles two response shapes (`result` as an array directly, or `result.library` as an array). The canonical shape is unclear.
+- **Confidence:** High for request shape (confirmed by AIOManager), medium for response shape.
+
+### `datastorePut`
+
+- **What we guessed:** The response body. None of the reference repos inspect the response. We documented `{ "result": {} }` by convention.
+- **Confidence:** High for request shape (confirmed by AIOManager with detailed item structure), low for response body.
+
+### Password reset
+
+- **What we guessed:** Everything. No reference repo uses a password reset endpoint. The endpoint name, request format, and response format are entirely speculative.
+- **Confidence:** None — fully speculative.
+
 ---
 
 ## Conflicts Between Reference Repos
@@ -72,36 +97,19 @@ Assumptions, conflicts, and gaps found while documenting the Stremio API from re
 
 **Resolution:** Documented `{ "result": { "success": true } }` as the response with a note about the inconsistency.
 
+### 5. `datastoreGet` response shape
+
+| Repo | Behavior |
+|------|----------|
+| AIOManager | Handles `result` as direct array **or** `result.library` as array |
+
+**Resolution:** Documented the direct array format as primary, with a note that `result.library` may also occur. No other repos use this endpoint for comparison.
+
 ---
 
 ## Endpoints Found But NOT Documented (and Why)
-
-### `saveUser`
-
-- **Source:** `stremio-api-client` (`apiStore.js`, `pushUser` method)
-- **Why skipped:** Outside requested scope (user profile management, not auth or addon management). Sends the full user object to update profile fields.
-
-### `loginWithToken`
-
-- **Source:** `stremio-api-client` (`apiStore.js`)
-- **Why skipped:** Alternative auth method (token-based, possibly for device pairing). Outside requested scope. Request takes a `token` field instead of email/password. Returns same shape as `login`.
-
-### `authWithApple`
-
-- **Source:** `stremio-api-client` (`apiStore.js`)
-- **Why skipped:** Apple ID authentication. Outside requested scope. Takes `token`, `sub`, `email`, `name` fields. Returns same shape as `login`.
-
-### `datastoreGet` / `datastorePut`
-
-- **Source:** AIOManager (whitelisted in server proxy, used for library/watch history)
-- **Why skipped:** Outside requested scope (library/watch history, not addon management). `datastoreGet` takes `{ authKey, collection, all }` where `collection` is typically `"libraryItem"`. `datastorePut` stores items back. These manage the user's watch history and library state.
 
 ### `addonCatalog` resource endpoints
 
 - **Source:** `stremio-addon-sdk` (router and protocol docs)
 - **Why skipped:** These are addon-to-addon protocol endpoints (`GET /{resource}/{type}/{id}.json`), not Stremio API endpoints. They are served by individual addon servers, not by `api.strem.io`. The manifest fetch endpoint is documented as the primary interaction point.
-
-### Password reset / email verification
-
-- **Source:** None — not present in any reference repo
-- **Why skipped:** No evidence in any source. Almost certainly exists in the Stremio web app but is not exposed through the public API or documented in any client library.
