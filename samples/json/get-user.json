@@ -1,0 +1,12 @@
+{
+  "request": {
+    "authKey": "YOUR_AUTH_KEY"
+  },
+  "response": {
+    "result": {
+      "_id": "5f8b3c2e1a2b3c4d5e6f7a8b",
+      "email": "user@example.com",
+      "lastModified": "2026-04-07T10:00:00.000Z"
+    }
+  }
+}

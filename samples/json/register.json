@@ -1,0 +1,16 @@
+{
+  "request": {
+    "email": "newuser@example.com",
+    "password": "YOUR_PASSWORD"
+  },
+  "response": {
+    "result": {
+      "authKey": "YOUR_AUTH_KEY",
+      "user": {
+        "_id": "6a1c4d5e2f3b4c5d6e7f8a9b",
+        "email": "newuser@example.com",
+        "lastModified": "2026-04-07T10:00:00.000Z"
+      }
+    }
+  }
+}
