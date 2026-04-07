@@ -1,0 +1,32 @@
+{
+  "request": {
+    "_note": "GET request to the addon's transport URL — no request body",
+    "url": "https://v3-cinemeta.strem.io/manifest.json"
+  },
+  "response": {
+    "id": "com.linvo.cinemeta",
+    "version": "3.0.12",
+    "name": "Cinemeta",
+    "description": "The official addon for movie and series info",
+    "resources": ["meta", "catalog"],
+    "types": ["movie", "series"],
+    "catalogs": [
+      {
+        "type": "movie",
+        "id": "top",
+        "name": "Popular",
+        "extra": [
+          { "name": "search", "isRequired": false },
+          { "name": "genre", "isRequired": false },
+          { "name": "skip", "isRequired": false }
+        ]
+      }
+    ],
+    "logo": "https://v3-cinemeta.strem.io/images/cinemeta-logo.png",
+    "behaviorHints": {
+      "adult": false,
+      "p2p": false
+    },
+    "idPrefixes": ["tt"]
+  }
+}

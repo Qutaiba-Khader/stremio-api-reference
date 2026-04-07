@@ -1,0 +1,43 @@
+{
+  "request": {
+    "authKey": "YOUR_AUTH_KEY",
+    "addons": [
+      {
+        "transportUrl": "https://v3-cinemeta.strem.io/manifest.json",
+        "transportName": "http",
+        "manifest": {
+          "id": "com.linvo.cinemeta",
+          "version": "3.0.12",
+          "name": "Cinemeta",
+          "description": "The official addon for movie and series info",
+          "types": ["movie", "series"],
+          "resources": ["meta", "catalog"],
+          "catalogs": []
+        },
+        "flags": {
+          "official": true,
+          "protected": true
+        }
+      },
+      {
+        "transportUrl": "https://example-addon.com/manifest.json",
+        "transportName": "http",
+        "manifest": {
+          "id": "org.example.myaddon",
+          "version": "1.0.0",
+          "name": "My Custom Addon",
+          "description": "A third-party addon",
+          "types": ["movie"],
+          "resources": ["stream"],
+          "catalogs": []
+        },
+        "flags": {}
+      }
+    ]
+  },
+  "response": {
+    "result": {
+      "success": true
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "request": {
+    "transportUrl": "https://your-addon.example.com/manifest.json",
+    "transportName": "http"
+  },
+  "response": {
+    "result": {}
+  }
+}

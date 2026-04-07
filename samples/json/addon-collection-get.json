@@ -1,0 +1,67 @@
+{
+  "request": {
+    "authKey": "YOUR_AUTH_KEY",
+    "update": true
+  },
+  "response": {
+    "result": {
+      "addons": [
+        {
+          "transportUrl": "https://v3-cinemeta.strem.io/manifest.json",
+          "transportName": "http",
+          "manifest": {
+            "id": "com.linvo.cinemeta",
+            "version": "3.0.12",
+            "name": "Cinemeta",
+            "description": "The official addon for movie and series info",
+            "types": ["movie", "series"],
+            "resources": ["meta", "catalog"],
+            "catalogs": [
+              {
+                "type": "movie",
+                "id": "top",
+                "name": "Popular"
+              }
+            ]
+          },
+          "flags": {
+            "official": true,
+            "protected": true
+          }
+        },
+        {
+          "transportUrl": "https://opensubtitles-v3.strem.io/manifest.json",
+          "transportName": "http",
+          "manifest": {
+            "id": "org.stremio.opensubtitlesv3",
+            "version": "1.0.0",
+            "name": "OpenSubtitles v3",
+            "description": "Subtitles from OpenSubtitles",
+            "types": ["movie", "series"],
+            "resources": ["subtitles"],
+            "catalogs": []
+          },
+          "flags": {
+            "official": true,
+            "protected": true
+          }
+        },
+        {
+          "transportUrl": "https://example-addon.com/manifest.json",
+          "transportName": "http",
+          "manifest": {
+            "id": "org.example.myaddon",
+            "version": "1.0.0",
+            "name": "My Custom Addon",
+            "description": "A third-party addon example",
+            "types": ["movie"],
+            "resources": ["stream"],
+            "catalogs": []
+          },
+          "flags": {}
+        }
+      ],
+      "lastModified": "2026-04-07T10:00:00.000Z"
+    }
+  }
+}
