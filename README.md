@@ -6,14 +6,20 @@ Organized documentation of the Stremio API with testable samples.
 
 This repository provides clear, structured documentation for the Stremio API, including endpoint references, authentication guides, and ready-to-use request samples that can be tested directly.
 
+## Try It Live
+
+An interactive testing UI is available at:\
+**https://qutaiba-khader.github.io/stremio-api-reference/**
+
+Login with your Stremio credentials (or paste an authKey) to view, reorder, add, remove, test, backup, and restore your addon collection — all from the browser.
+
 ## Scopes Covered
 
-- **Authentication** — login, register, logout, getUser
+- **Authentication** — login, register, logout, getUser, saveUser, loginWithToken, authWithApple
 - **Addon Collection Management** — fetch, save, install, remove, and publish addons
 - **Addon Ordering / Sorting** — how addon priority is represented and persisted
 - **Backup / Restore** — export and import addon collections as JSON
-
-**Planned:** A GitHub Pages testing UI for interactive API exploration.
+- **Datastore** — library and watch history (datastoreGet, datastorePut)
 
 ## Entry Point
 
@@ -26,11 +32,13 @@ stremio-api-reference/
 ├── docs/
 │   ├── README.md           # Endpoint index (start here)
 │   ├── TEMPLATE.md         # Standard structure for endpoint docs
+│   ├── NOTES.md            # Research notes, assumptions, conflicts
 │   ├── endpoints/          # Individual endpoint documentation
 │   └── authentication/     # Auth flow overview
 ├── samples/
 │   ├── curl/               # Copy-paste curl commands (.sh)
 │   └── json/               # Request/response JSON examples
+├── docs-site/              # GitHub Pages interactive testing UI
 ├── references/             # Additional reference material
 └── README.md
 ```
